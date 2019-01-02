@@ -1,0 +1,5 @@
+<div *ngIf="hero" id="detail-container">
+  <h2>{{hero.name | uppercase}}</h2>
+  <div><p [innerHTML]="hero.detail"></p></div>
+  <button (click)="goBack()">go back</button>
+</div>
