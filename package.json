@@ -10,7 +10,8 @@
     "build": "ng build --prod",
     "e2e": "ng e2e",
     "ng": "ng",
-    "postinstall": "ng build --aot --prod"
+    "postinstall": "ng build --aot --prod",
+    “heroku-postbuild”: “ng build --prod”
   },
   "keywords": [],
   "author": "",
@@ -32,7 +33,9 @@
     "path": "^0.12.7",
     "rxjs": "^6.3.0",
     "typescript": "~3.1.1",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@angular/cli": "^7.1.4",
+    "@angular/compiler-cli": "^7.1.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.10.0",
