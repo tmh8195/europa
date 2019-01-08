@@ -15,14 +15,14 @@ export class DashboardComponent implements OnInit {
   private snippetService:SnippetService) { }
 
   ngOnInit() {
-    this.getHeroes();
+    // this.getHeroes();
     this.getSnippets()
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
-  }
+  // getHeroes(): void {
+  //   this.heroService.getHeroes()
+  //     .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+  // }
 
   getSnippets():void{
     this.snippetService.getSnippets()
