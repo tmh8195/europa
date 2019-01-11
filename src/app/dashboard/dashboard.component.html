@@ -1,1 +1,17 @@
-<app-hero-search></app-hero-search>
+<!--<app-hero-search></app-hero-search>-->
+
+
+<div id="search-component">
+    <input #searchBox id="search-box" placeholder="Search..."/>
+</div>
+<button (click)="searchNow(searchBox.value)" class="btn btn-large btn-search" type="button" style="margin-top: 15px">
+    <i class="fa fa-search fa-fw"></i>
+    Search
+</button>
+
+<ul class="list-group" style="margin-top: 50px">
+    <li *ngFor="let snippet of snippets" class="list-group-item">
+        <a routerLink="/detail/{{snippet.id}}">
+            <span>{{snippet.title}}</span>
+        </a></li>
+</ul>

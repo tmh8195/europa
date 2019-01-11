@@ -1,35 +1,25 @@
-import {Injectable} from '@angular/core';
-import {Observable, of, throwError} from 'rxjs';
+import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 import {Snippet} from './snippet';
-import {tap, catchError} from 'rxjs/internal/operators';
+import {tap} from 'rxjs/internal/operators';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class SnippetService {
+export class SearchService {
 
-    // private snippetURL = 'https://calm-island-60429.herokuapp.com/snippets/';
-    private snippetURL = 'http://localhost:8000/search/Dataframe/';
+    private searchURL = 'http://localhost:8000/search';
 
     constructor(private http: HttpClient) {
     }
 
-    getSnippets(): Observable<Snippet[]> {
-        return this.http.get<Snippet[]>(this.snippetURL)
+    search(term): Observable<Snippet[]> {
+        return this.http.get<Snippet[]>(`${this.searchURL}/${term}/`)
             .pipe(
                 tap(_ => console.log('fetched snippets')),
                 // catchError(error=>throwError(new Error('lol')))
             );
-    }
-
-    getSnippet(id:number):Observable<Snippet>{
-        console.log('getSnippet');
-      const url = `${this.snippetURL}${id}/`;
-      return this.http.get<Snippet>(url).pipe(
-          tap(_ => console.log(`fetched snippet${id}`))
-
-      )
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
@@ -45,10 +35,4 @@ export class SnippetService {
             return of(result as T);
         };
     }
-
-
 }
-
-
-
-

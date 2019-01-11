@@ -14,6 +14,7 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { MessagesComponent }    from './messages/messages.component';
+import { SnippetDetailComponent } from './snippet-detail/snippet-detail.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MessagesComponent }    from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    SnippetDetailComponent
   ],
   bootstrap: [ AppComponent ]
 })

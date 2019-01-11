@@ -1,0 +1,7 @@
+<div *ngIf="snippet">
+  <h2>{{snippet.title | uppercase}}</h2>
+  <div><p [innerHTML]="snippet.code"></p></div>
+  <button (click)="goBack()">go back</button>
+</div>
+
+

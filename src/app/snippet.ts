@@ -1,3 +1,5 @@
 export class Snippet {
-    code:string
+    id: number;
+    title:string;
+    code:string;
 }
