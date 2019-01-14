@@ -9,8 +9,8 @@ import {tap, catchError} from 'rxjs/internal/operators';
 })
 export class SnippetService {
 
-    private snippetURL = 'https://calm-island-60429.herokuapp.com/snippets/';
-    // private snippetURL = 'http://localhost:8000/search/Dataframe/';
+    // private snippetURL = 'https://calm-island-60429.herokuapp.com/snippets/';
+    private snippetURL = 'http://localhost:8000/snippets/';
 
     constructor(private http: HttpClient) {
     }

@@ -9,18 +9,22 @@ import {tap} from 'rxjs/internal/operators';
 })
 export class SearchService {
 
-    private searchURL = 'http://localhost:8000/search';
+    private searchURL = 'http://localhost:8000/filter/';
 
     constructor(private http: HttpClient) {
     }
 
     search(term): Observable<Snippet[]> {
-        return this.http.get<Snippet[]>(`${this.searchURL}/${term}/`)
+         let data = {"term":"Dataframe"};
+        return this.http.post<Snippet[]>(this.searchURL,data)
             .pipe(
                 tap(_ => console.log('fetched snippets')),
                 // catchError(error=>throwError(new Error('lol')))
             );
     }
+
+
+
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
