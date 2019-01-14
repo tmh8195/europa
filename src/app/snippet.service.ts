@@ -23,6 +23,15 @@ export class SnippetService {
             );
     }
 
+    getFilteredSnippets():Observable<Snippet[]>{
+        let data = {"term":"Dataframe"};
+        return this.http.post<Snippet[]>(this.snippetURL,data)
+            .pipe(
+                tap(_ => console.log('fetched snippets')),
+                // catchError(error=>throwError(new Error('lol')))
+            );
+    }
+
     getSnippet(id:number):Observable<Snippet>{
         console.log('getSnippet');
       const url = `${this.snippetURL}${id}/`;
