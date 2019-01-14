@@ -3,7 +3,7 @@
 </div>
 <div>
    <ul class="search-result list-group" >
-    <li *ngFor="let hero of heroes$ | async" class="list-group-item">
+    <li *ngFor="let hero of snippets$ | async" class="list-group-item">
       <a routerLink="/detail/{{hero.id}}">
         {{hero.name}}
       </a>
