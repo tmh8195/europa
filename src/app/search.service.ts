@@ -9,13 +9,13 @@ import {tap} from 'rxjs/internal/operators';
 })
 export class SearchService {
 
-    private searchURL = 'http://localhost:8000/filter/';
+    private searchURL = 'https://calm-island-60429.herokuapp.com/filter/';
 
     constructor(private http: HttpClient) {
     }
 
     search(term): Observable<Snippet[]> {
-         let data = {"term":"Dataframe"};
+         let data = {"term":term};
         return this.http.post<Snippet[]>(this.searchURL,data)
             .pipe(
                 tap(_ => console.log('fetched snippets')),
