@@ -1,0 +1,19 @@
+<!--<mat-chip-list style="margin-top: 40px">-->
+<!--<mat-chip *ngFor="let tagName of tagCount" selected-->
+<!--[removable]="removable">-->
+<!--{{tagName.tag.name}}-->
+<!--&lt;!&ndash;<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>&ndash;&gt;-->
+<!--</mat-chip>-->
+<!--</mat-chip-list>-->
+
+<div>
+    <mat-form-field style="margin-top: 40px">
+        <mat-chip-list #chipList>
+            <mat-chip color="primary">Chip 1</mat-chip>
+            <mat-chip color="primary">Chip 2</mat-chip>
+            <!--<input [matChipInputFor]="chipList">-->
+        </mat-chip-list>
+    </mat-form-field>
+</div>
+
+

@@ -1,7 +1,19 @@
-
-<nav>
-  <!--<a routerLink="/dashboard">Dashboard</a>-->
-  <!--<a routerLink="/heroes">Snippets</a>-->
+<nav class="navbar" style="background-color: #b66ff7">
+  <span class="navbar-brand" style="color:black">DataScience Personal Assistant - BETA</span>
 </nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+        <div style="margin-right: 30px">
+            <app-search-box></app-search-box>
+            <!--<app-filter></app-filter>-->
+            <!--<app-suggestedfilter></app-suggestedfilter>-->
+            <app-search-results></app-search-results>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-snippet-detail></app-snippet-detail>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<router-outlet></router-outlet>-->
 <!--<app-messages></app-messages>-->

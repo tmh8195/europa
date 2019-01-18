@@ -1,0 +1,8 @@
+<mat-chip-list *ngIf="tagCount && tagCount.length!=0" #chipList style="margin-top: 40px">
+    <mat-chip *ngFor="let tagName of tagCount" color="accent" selected
+              [removable]="removable">
+        {{tagName.tag.name}}
+        <!--<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>-->
+    </mat-chip>
+</mat-chip-list>
+

@@ -1,42 +1,38 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import {Observable, of, BehaviorSubject} from 'rxjs';
 import {Snippet} from './snippet';
+import {TagCount} from './tag-count';
 import {tap} from 'rxjs/internal/operators';
+import {SearchResult} from './search-result';
+import {SearchDataService} from './search-data.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SearchService {
 
-    private searchURL = 'https://calm-island-60429.herokuapp.com/filter/';
+    private snippetListSource = new BehaviorSubject([]);
+    snippetList$ = this.snippetListSource.asObservable();
 
-    constructor(private http: HttpClient) {
+    private tagCountSource = new BehaviorSubject([]);
+    tagCount$ = this.tagCountSource.asObservable();
+
+    constructor(private searchDataService: SearchDataService) {
+        this.searchDataService.searchResult$.subscribe(
+            searchResult => {
+                if (searchResult) {
+                    this.snippetListSource.next(searchResult.snippets);
+                    this.tagCountSource.next(searchResult.tagCount);
+                }
+            }
+        )
     }
 
-    search(term): Observable<Snippet[]> {
-         let data = {"term":term};
-        return this.http.post<Snippet[]>(this.searchURL,data)
-            .pipe(
-                tap(_ => console.log('fetched snippets')),
-                // catchError(error=>throwError(new Error('lol')))
-            );
+
+    search(term){
+        this.searchDataService.search(term);
     }
 
 
-
-
-    private handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-
-            // TODO: better job of transforming error for user consumption
-            console.log(`${operation} failed: ${error.message}`);
-
-            // Let the app keep running by returning an empty result.
-            return of(result as T);
-        };
-    }
 }
