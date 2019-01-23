@@ -17,8 +17,7 @@ export class SearchDataService {
     private searchResultSource = new BehaviorSubject(new SearchResult);
     searchResult$ = this.searchResultSource.asObservable();
 
-    search(term){
-        let data = {"term": term};
+    search(data){
         let searchRequest = this.http.post<SearchResult>(this.searchURL, data)
             .pipe(
                 tap(_ => console.log('fetched snippets')),

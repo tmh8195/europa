@@ -1,6 +1,6 @@
 import {NgModule}       from '@angular/core';
 import {BrowserModule}  from '@angular/platform-browser';
-import {FormsModule}    from '@angular/forms';
+import {FormsModule, ReactiveFormsModule}    from '@angular/forms';
 import {HttpClientModule}    from '@angular/common/http';
 
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
@@ -17,7 +17,7 @@ import {MessagesComponent}    from './messages/messages.component';
 import {SnippetDetailComponent} from './snippet-detail/snippet-detail.component';
 import {
     MatListModule, MatCardModule, MatChipsModule, MatSidenavModule, MatFormField,
-    MatFormFieldModule
+    MatFormFieldModule, MatIconModule, MatAutocompleteModule, MatInputModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
@@ -39,6 +39,11 @@ import { PageComponent } from './page/page.component';
         MatListModule,
         MatSidenavModule,
         MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule
+
     ],
     declarations: [
         AppComponent,
