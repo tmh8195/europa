@@ -1,7 +1,7 @@
 <div style="margin-top: 10px">
-    <mat-chip-list *ngIf="searchService.suggestedFilters && searchService.suggestedFilters.length!=0" #chipList
+    <mat-chip-list *ngIf="searchService?.suggestedFilters && searchService?.suggestedFilters.length!=0" #chipList
                    style="margin-top: 40px">
-        <mat-chip *ngFor="let tagName of searchService.suggestedFilters" color="accent"
+        <mat-chip *ngFor="let tagName of searchService?.suggestedFilters" color="accent"
                   (click)="addFilter(tagName.tag.name)">
             {{tagName.tag.name}}
             <!--<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>-->
