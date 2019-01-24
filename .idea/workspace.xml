@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0af46cfa-1dfd-454a-8bfc-29e595fdee1d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/search.service.ts" afterPath="$PROJECT_DIR$/src/app/search.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/snippet.service.ts" afterPath="$PROJECT_DIR$/src/app/snippet.service.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="search.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/search.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state relative-caret-position="-71">
+              <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -97,12 +98,12 @@
         <option value="$PROJECT_DIR$/src/app/filter/filter.component.html" />
         <option value="$PROJECT_DIR$/src/app/tag.ts" />
         <option value="$PROJECT_DIR$/src/app/filter/filter.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/search-data.service.ts" />
         <option value="$PROJECT_DIR$/src/app/snippet-detail/snippet-detail.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/snippet.service.ts" />
         <option value="$PROJECT_DIR$/src/app/suggestedfilter/suggestedfilter.component.ts" />
         <option value="$PROJECT_DIR$/src/app/page/page.component.css" />
         <option value="$PROJECT_DIR$/src/environments/environment.prod.ts" />
+        <option value="$PROJECT_DIR$/src/app/search-data.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/snippet.service.ts" />
         <option value="$PROJECT_DIR$/src/app/search.service.ts" />
       </list>
     </option>
@@ -903,28 +904,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/search-data.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/snippet-detail/snippet-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/snippet.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -965,10 +948,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/search-data.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/snippet.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="59" lean-forward="false" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1548352953107" expanded="true" signature="1104:1124" ph="..." />
+            <marker date="1548352953107" expanded="true" signature="1187:1584" ph="..." />
+            <marker date="1548352953107" expanded="true" signature="1266:1584" ph="..." />
+            <marker date="1548352953107" expanded="true" signature="1348:1584" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/search.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="-71">
+          <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

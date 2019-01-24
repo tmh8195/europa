@@ -3,14 +3,14 @@ import {Observable, of, throwError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Snippet} from './snippet';
 import {tap, catchError} from 'rxjs/internal/operators';
+import {environment} from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SnippetService {
 
-    private snippetURL = 'http://localhost:8000/snippets/';
-    // private snippetURL = 'http://localhost:8000/snippets/';
+    private snippetURL = `${environment.apiUrl}/snippets/`;
 
     constructor(private http: HttpClient) {
     }

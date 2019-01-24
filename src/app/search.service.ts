@@ -31,13 +31,6 @@ export class SearchService {
             searchResult => {
                 if (searchResult) {
                     this.snippetListSource.next(searchResult.snippets);
-
-                    // Don't include already used filters
-                    // this.allFilters = searchResult.tagCount;
-                    // if(this.allFilters!=null && this.filters!=null){
-                    //     console.log('af',this.allFilters);
-                    //     this.suggestedFilters = this.allFilters.filter(tc => !(this.filters.map(x => x.name).includes(tc.tag.name)));
-                    // }
                     this.suggestedFilters = searchResult.tagCount;
                     this.suggestedFilterSource.next(this.suggestedFilters);
                 }
