@@ -1,3 +1,6 @@
 export class Tag {
-    name:String;
+     constructor(name: string) {
+        this.name = name;
+    }
+    name:string;
 }

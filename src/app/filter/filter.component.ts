@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {MatAutocomplete, MatChipInputEvent, MatAutocompleteSelectedEvent, MatIcon} from '@angular/material';
 import {map, startWith} from 'rxjs/internal/operators';
 import {SearchService} from '../search.service';
+import {Tag} from '../tag';
 
 @Component({
     selector: 'app-filter',
@@ -19,6 +20,7 @@ export class FilterComponent implements OnInit {
     separatorKeysCodes: number[] = [ENTER, COMMA];
     tagCtrl = new FormControl();
     filteredTags: Observable<string[]>;
+    filters: string[] = [];
 
     allTags: string[] = ['deep_learning',
         'python: basics',
@@ -61,11 +63,13 @@ export class FilterComponent implements OnInit {
     @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
     @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-    constructor( private searchService:SearchService) {
+    constructor(private searchService: SearchService) {
 
         this.searchService.filters$.subscribe(
             filters => {
-                let x = filters.map();
+                this.filters = filters.map(function (tag: Tag) {
+                    return tag.name;
+                });
             }
         )
 
@@ -84,7 +88,7 @@ export class FilterComponent implements OnInit {
             const value = event.value;
             //Add our tag(fruit)
             if ((value || '').trim()) {
-                this.searchService.filters.push(value.trim());
+                this.searchService.addFilter(new Tag(value.trim()));
             }
             //Reset the input value
             if (input) {
@@ -95,15 +99,12 @@ export class FilterComponent implements OnInit {
         }
     }
 
-    remove(tag: string): void {
-        const index = this.searchService.filters.indexOf(tag);
-        if (index >= 0) {
-            this.searchService.filters.splice(index, 1);
-        }
+    remove(tagString: string): void {
+      this.searchService.removeFilter(new Tag(tagString));
     }
 
     selected(event: MatAutocompleteSelectedEvent): void {
-        this.searchService.filters.push(event.option.viewValue);
+        this.searchService.addFilter(new Tag(event.option.viewValue));
         this.tagInput.nativeElement.value = '';
         this.tagCtrl.setValue(null);
     }

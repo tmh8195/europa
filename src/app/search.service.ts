@@ -31,10 +31,9 @@ export class SearchService {
             searchResult => {
                 if (searchResult) {
                     this.snippetListSource.next(searchResult.snippets);
-                    // this.suggestedFilterSource.next(searchResult.tagCount);
 
-                    console.log('filters', allFilters);
-                    this.suggestedFilters = searchResult.tagCount;
+                    // Don't include already used filters
+                    this.suggestedFilters = searchResult.tagCount.filter(tc=>!(this.filters.map(x=>x.name).includes(tc.tag.name)));
                     this.suggestedFilterSource.next(this.suggestedFilters);
                 }
             }
@@ -48,15 +47,32 @@ export class SearchService {
     }
 
 
-    addFilter(filter:Tag){
+    addFilter(filter: Tag) {
         this.filters.push(filter);
         this.filterSource.next(this.filters);
     }
 
-    addSuggestedFilter(filter:Tag){
+    removeFilter(filter: Tag) {
+        console.log('b', filter);
+        console.log('old', this.filters);
+        // const index = this.filters.indexOf(filter);
+        // console.log(this.filters[0] === filter);
+        // console.log(index);
+
+        this.filters = this.filters.filter(x => x.name != filter.name);
+
+
+        // if (index >= 0) {
+        //     this.filters.splice(index, 1);
+        // }
+        console.log('new filters', this.filters);
+        this.filterSource.next(this.filters);
+    }
+
+    addSuggestedFilter(filter: Tag) {
         this.addFilter(filter);
 
-         this.suggestedFilters = this.suggestedFilters.filter(function (obj) {
+        this.suggestedFilters = this.suggestedFilters.filter(function (obj) {
             return obj.tag !== filter;
         });
         this.suggestedFilterSource.next(this.suggestedFilters)

@@ -23,7 +23,7 @@ export class SuggestedfilterComponent implements OnInit {
     }
 
     addFilter(filter:Tag) {
-        this.searchService.addFilter(filter);
+        this.searchService.addSuggestedFilter(filter);
     }
 
     _filter(){

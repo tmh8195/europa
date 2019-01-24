@@ -17,12 +17,12 @@
 <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList>
         <mat-chip
-                *ngFor="let tag of searchService?.filters$ | async"
+                *ngFor="let stringTag of filters"
                 [selectable]="selectable"
                 [removable]="removable"
-                (removed)="remove(tag)"
+                (removed)="remove(stringTag)"
                 style="background-color: #3f51b5;color: white;">
-            {{tag}}
+            {{stringTag}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <input
