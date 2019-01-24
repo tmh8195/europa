@@ -16,7 +16,6 @@ export class SuggestedfilterComponent implements OnInit {
                 this.tagCount = tagCount;
             }
         );
-        this._filter()
     }
 
     ngOnInit(): void {
@@ -24,10 +23,6 @@ export class SuggestedfilterComponent implements OnInit {
 
     addFilter(filter:Tag) {
         this.searchService.addSuggestedFilter(filter);
-    }
-
-    _filter(){
-     console.log(this.searchService.suggestedFilters)
     }
 
 }

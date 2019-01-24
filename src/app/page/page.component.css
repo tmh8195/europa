@@ -8446,7 +8446,7 @@ Browsers not listed, including Safari, are supported via the styling under the
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -8470,7 +8470,7 @@ Browsers not listed, including Safari, are supported via the styling under the
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -8675,7 +8675,7 @@ div.traceback-wrapper {
 body {
   background-color: #fff;
   /* This makes sure that the body covers the entire window and needs to
-       be in a different element than the display: box in wrapper below */
+       be in a different element than the display: flex in wrapper below */
   position: absolute;
   left: 0px;
   right: 0px;
@@ -8867,7 +8867,7 @@ span#login_widget > .button .badge,
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -9457,7 +9457,7 @@ div.cell {
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -9555,7 +9555,7 @@ div.inner_cell {
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -9592,7 +9592,7 @@ div.unrecognized_cell {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -9639,7 +9639,7 @@ div.input {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -9656,7 +9656,7 @@ div.input {
     display: -moz-box;
     -moz-box-orient: vertical;
     -moz-box-align: stretch;
-    display: box;
+    display: flex;
     box-orient: vertical;
     box-align: stretch;
     /* Modern browsers */
@@ -9884,7 +9884,7 @@ div.output_wrapper {
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -9916,7 +9916,7 @@ div.output_collapsed {
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -9950,7 +9950,7 @@ div.output_area {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -9988,7 +9988,7 @@ div.output_area svg.unconfined {
   display: -moz-box;
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: vertical;
   box-align: stretch;
   /* Modern browsers */
@@ -10005,7 +10005,7 @@ div.output_area svg.unconfined {
     display: -moz-box;
     -moz-box-orient: vertical;
     -moz-box-align: stretch;
-    display: box;
+    display: flex;
     box-orient: vertical;
     box-align: stretch;
     /* Modern browsers */
@@ -10290,7 +10290,7 @@ div.text_cell {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -10489,7 +10489,7 @@ kbd {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */
@@ -11227,7 +11227,7 @@ div#pager .ui-resizable-handle::after {
   display: -moz-box;
   -moz-box-orient: horizontal;
   -moz-box-align: stretch;
-  display: box;
+  display: flex;
   box-orient: horizontal;
   box-align: stretch;
   /* Modern browsers */

@@ -58,19 +58,7 @@ export class SearchService {
     }
 
     removeFilter(filter: Tag) {
-        console.log('b', filter);
-        console.log('old', this.filters);
-        // const index = this.filters.indexOf(filter);
-        // console.log(this.filters[0] === filter);
-        // console.log(index);
-
         this.filters = this.filters.filter(x => x.name != filter.name);
-
-
-        // if (index >= 0) {
-        //     this.filters.splice(index, 1);
-        // }
-        console.log('new filters', this.filters);
         this.filterSource.next(this.filters);
     }
 

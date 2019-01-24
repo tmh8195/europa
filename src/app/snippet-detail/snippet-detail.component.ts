@@ -36,7 +36,6 @@ export class SnippetDetailComponent implements OnInit {
         this.snippetService.getSnippet(id).subscribe(
             snippet => {
                 this.snippet = snippet;
-                console.log(this.snippet);
                 this.page = this.sanitizer.bypassSecurityTrustHtml(this.snippet.code);
             })
     }

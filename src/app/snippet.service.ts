@@ -33,11 +33,9 @@ export class SnippetService {
     }
 
     getSnippet(id:number):Observable<Snippet>{
-        console.log('getSnippet');
       const url = `${this.snippetURL}${id}/`;
       return this.http.get<Snippet>(url).pipe(
-          tap(_ => console.log(`fetched snippet${id}`))
-
+          // tap(_ => {})
       )
     }
 
