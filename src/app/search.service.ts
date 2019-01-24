@@ -47,7 +47,8 @@ export class SearchService {
 
 
     search(term) {
-        let data = {"term": term, "filters": this.filters};
+        let data = {"term": term, "filters": this.filters.map(function (x:Tag){return x.name;})};
+        console.log(data);
         this.searchDataService.search(data);
     }
 
