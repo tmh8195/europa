@@ -6,22 +6,23 @@ import {TagCount} from './tag-count';
 import {tap} from 'rxjs/internal/operators';
 import {SearchResult} from './search-result';
 import {SearchDataService} from './search-data.service';
+import {Tag} from './tag';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SearchService {
-    tags: string[] = [];
+    filters: Tag[] = [];
     suggestedFilters: TagCount[] = [];
 
     private snippetListSource = new BehaviorSubject([]);
     snippetList$ = this.snippetListSource.asObservable();
 
-    private tagCountSource = new BehaviorSubject([]);
-    tagCount$ = this.tagCountSource.asObservable();
+    private suggestedFilterSource = new BehaviorSubject([]);
+    suggestedFilters$ = this.suggestedFilterSource.asObservable();
 
     private filterSource = new BehaviorSubject([]);
-    filter$ = this.filterSource.asObservable();
+    filters$ = this.filterSource.asObservable();
 
     constructor(private searchDataService: SearchDataService) {
         let allFilters = [new TagCount()];
@@ -30,10 +31,11 @@ export class SearchService {
             searchResult => {
                 if (searchResult) {
                     this.snippetListSource.next(searchResult.snippets);
-                    // this.tagCountSource.next(searchResult.tagCount);
+                    // this.suggestedFilterSource.next(searchResult.tagCount);
 
                     console.log('filters', allFilters);
-                    this.tagCountSource.next(searchResult.tagCount);
+                    this.suggestedFilters = searchResult.tagCount;
+                    this.suggestedFilterSource.next(this.suggestedFilters);
                 }
             }
         )
@@ -41,24 +43,24 @@ export class SearchService {
 
 
     search(term) {
-        let data = {"term": term, "filters": this.tags};
+        let data = {"term": term, "filters": this.filters};
         this.searchDataService.search(data);
     }
 
 
+    addFilter(filter:Tag){
+        this.filters.push(filter);
+        this.filterSource.next(this.filters);
+    }
 
+    addSuggestedFilter(filter:Tag){
+        this.addFilter(filter);
 
-
-    // addFilter(filter){
-    //     this.filters.push(filter);
-    // //    this.search(term,filter)
-    //
-    // }
-    //
-    // addSuggestedFilter(filter){
-    //     this.addFilter(filter);
-    //     // this.suggestedFilters.remove()
-    // }
+         this.suggestedFilters = this.suggestedFilters.filter(function (obj) {
+            return obj.tag !== filter;
+        });
+        this.suggestedFilterSource.next(this.suggestedFilters)
+    }
 
 
 }

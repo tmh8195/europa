@@ -62,10 +62,17 @@ export class FilterComponent implements OnInit {
     @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
     constructor( private searchService:SearchService) {
+
+        this.searchService.filters$.subscribe(
+            filters => {
+                let x = filters.map();
+            }
+        )
+
         this.filteredTags = this.tagCtrl.valueChanges.pipe(
             startWith(null),
             map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
-        this.searchService.tags = []
+        this.searchService.filters = []
     }
 
     ngOnInit() {
@@ -77,7 +84,7 @@ export class FilterComponent implements OnInit {
             const value = event.value;
             //Add our tag(fruit)
             if ((value || '').trim()) {
-                this.searchService.tags.push(value.trim());
+                this.searchService.filters.push(value.trim());
             }
             //Reset the input value
             if (input) {
@@ -89,14 +96,14 @@ export class FilterComponent implements OnInit {
     }
 
     remove(tag: string): void {
-        const index = this.searchService.tags.indexOf(tag);
+        const index = this.searchService.filters.indexOf(tag);
         if (index >= 0) {
-            this.searchService.tags.splice(index, 1);
+            this.searchService.filters.splice(index, 1);
         }
     }
 
     selected(event: MatAutocompleteSelectedEvent): void {
-        this.searchService.tags.push(event.option.viewValue);
+        this.searchService.filters.push(event.option.viewValue);
         this.tagInput.nativeElement.value = '';
         this.tagCtrl.setValue(null);
     }

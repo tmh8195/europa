@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of, BehaviorSubject} from 'rxjs';
 import {SearchResult} from './search-result';
 import {tap} from 'rxjs/internal/operators';
+import {environment} from '../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,8 @@ export class SearchDataService {
     constructor(private http: HttpClient) {
     }
 
-    private searchURL = 'http://localhost:8000/search/';
+
+    private searchURL = `${environment.apiUrl}/search/`;
 
     private searchResultSource = new BehaviorSubject(new SearchResult);
     searchResult$ = this.searchResultSource.asObservable();
