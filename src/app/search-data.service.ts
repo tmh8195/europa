@@ -5,6 +5,7 @@ import {SearchResult} from './search-result';
 import {tap} from 'rxjs/internal/operators';
 import {environment} from '../environments/environment';
 
+
 @Injectable({
     providedIn: 'root'
 })

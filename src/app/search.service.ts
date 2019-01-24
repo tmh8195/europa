@@ -14,6 +14,7 @@ import {Tag} from './tag';
 export class SearchService {
     filters: Tag[] = [];
     suggestedFilters: TagCount[] = [];
+    allFilters: TagCount[] = [];
 
     private snippetListSource = new BehaviorSubject([]);
     snippetList$ = this.snippetListSource.asObservable();
@@ -25,7 +26,6 @@ export class SearchService {
     filters$ = this.filterSource.asObservable();
 
     constructor(private searchDataService: SearchDataService) {
-        let allFilters = [new TagCount()];
 
         this.searchDataService.searchResult$.subscribe(
             searchResult => {
@@ -33,7 +33,12 @@ export class SearchService {
                     this.snippetListSource.next(searchResult.snippets);
 
                     // Don't include already used filters
-                    this.suggestedFilters = searchResult.tagCount.filter(tc=>!(this.filters.map(x=>x.name).includes(tc.tag.name)));
+                    // this.allFilters = searchResult.tagCount;
+                    // if(this.allFilters!=null && this.filters!=null){
+                    //     console.log('af',this.allFilters);
+                    //     this.suggestedFilters = this.allFilters.filter(tc => !(this.filters.map(x => x.name).includes(tc.tag.name)));
+                    // }
+                    this.suggestedFilters = searchResult.tagCount;
                     this.suggestedFilterSource.next(this.suggestedFilters);
                 }
             }
