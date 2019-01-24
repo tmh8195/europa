@@ -14,7 +14,7 @@ export class SuggestedfilterComponent implements OnInit {
             tagCount => {
                 this.tagCount = tagCount;
             }
-        )
+        );
         this._filter()
     }
 

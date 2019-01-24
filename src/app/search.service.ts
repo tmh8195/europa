@@ -31,10 +31,9 @@ export class SearchService {
                 if (searchResult) {
                     this.snippetListSource.next(searchResult.snippets);
                     // this.tagCountSource.next(searchResult.tagCount);
-                    allFilters = searchResult.tagCount;
+
                     console.log('filters', allFilters);
-                    this.suggestedFilters = searchResult.tagCount;
-                    console.log('wot', this.suggestedFilters);
+                    this.tagCountSource.next(searchResult.tagCount);
                 }
             }
         )
